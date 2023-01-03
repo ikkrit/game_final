@@ -7,6 +7,14 @@
         private $score;
         private $id_player;
 
+        public function __construct($id_party,$created_at,$score,$id_player)
+        {
+                $this->id_party = $id_party;
+                $this->created_at = $created_at;
+                $this->score = $score;
+                $this->id_player = $id_player;
+        }
+
         
         public function getId_party()
         {
