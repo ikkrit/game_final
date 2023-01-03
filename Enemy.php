@@ -8,9 +8,17 @@
         private $skills;
         private $zone;
 
-        public function __construct($zone)
+        public function __construct(int $zone)
         {
-            $this->zone = $zone;
+            if($zone > 0 && $zone <= 6) {
+                $this->setName($zone);
+                $this->setClass($zone);
+                $this->setAttack($zone);
+                $this->setSkills($zone);
+                $this->setZone($zone);
+            } else {
+                exit("Entre 1 et 6");
+            }
         }
 
 
@@ -21,8 +29,28 @@
 
         public function setName($name)
         {
-                $this->name = $name;
-
+                switch($name) {
+                    case 1:
+                        $this->name = "Varu";
+                        break;
+                    case 2:
+                        $this->name = "Seko";
+                        break;
+                    case 3:
+                        $this->name = "Elder";
+                        break;
+                    case 4:
+                        $this->name = "Cyber";
+                        break;
+                    case 5:
+                        $this->name = "Red";
+                        break;
+                    case 6:
+                        $this->name = "Horizon";
+                        break;
+                    default:
+                        $this->name = "Inconnu";
+                }
                 return $this;
         }
 
@@ -33,9 +61,29 @@
 
         public function setClass($class)
         {
-                $this->class = $class;
-
-                return $this;
+            switch($class) {
+                case 1:
+                    $this->class = "Necro";
+                    break;
+                case 2:
+                    $this->class = "Baro";
+                    break;
+                case 3:
+                    $this->class = "Delgo";
+                    break;
+                case 4:
+                    $this->class = "Kilgo";
+                    break;
+                case 5:
+                    $this->class = "Ieo";
+                    break;
+                case 6:
+                    $this->class = "Varado";
+                    break;
+                default:
+                    $this->class = "Inconnu";
+            }
+            return $this;
         }
 
         public function getAttack()
@@ -45,9 +93,29 @@
 
         public function setAttack($attack)
         {
-                $this->attack = $attack;
-
-                return $this;
+            switch($attack) {
+                case 1:
+                    $this->attack = 100;
+                    break;
+                case 2:
+                    $this->attack = 120;
+                    break;
+                case 3:
+                    $this->attack = 100;
+                    break;
+                case 4:
+                    $this->attack = 120;
+                    break;
+                case 5:
+                    $this->attack = 150;
+                    break;
+                case 6:
+                    $this->attack = 100;
+                    break;
+                default:
+                    $this->attack = 0;
+            }
+            return $this;
         }
 
         public function getSkills()
@@ -57,9 +125,29 @@
 
         public function setSkills($skills)
         {
-                $this->skills = $skills;
-
-                return $this;
+            switch($skills) {
+                case 1:
+                    $this->skills = "Fire";
+                    break;
+                case 2:
+                    $this->skills = "Ice";
+                    break;
+                case 3:
+                    $this->skills = "Dendro";
+                    break;
+                case 4:
+                    $this->skills = "Hydro";
+                    break;
+                case 5:
+                    $this->skills = "Fire";
+                    break;
+                case 6:
+                    $this->skills = "Ice";
+                    break;
+                default:
+                    $this->skills = "Inconnu";
+            }
+            return $this;
         }
 
         public function getZone()
@@ -69,9 +157,34 @@
 
         public function setZone($zone)
         {
-                $this->zone = $zone;
+            switch($zone) {
+                case 1:
+                    $this->zone = "Mondstat";
+                    break;
+                case 2:
+                    $this->zone = "Liyé";
+                    break;
+                case 3:
+                    $this->zone = "Sumeru";
+                    break;
+                case 4:
+                    $this->zone = "Icemery";
+                    break;
+                case 5:
+                    $this->zone = "Fontaine";
+                    break;
+                case 6:
+                    $this->zone = "Susuma";
+                    break;
+                default:
+                    $this->zone = "Inconnu";
+            }
+            return $this;
+        }
 
-                return $this;
+        public function enemy_description()
+        {
+            return "{$this->getName()} de la class : {$this->getClass()} avec une attaque de : {$this->getAttack()} de type {$this->getSkills()} qui appartient à la zone : {$this->getZone()}";
         }
     }
 

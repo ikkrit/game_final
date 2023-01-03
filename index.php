@@ -1,8 +1,9 @@
 <?php
 
     require "Player.php";
+    require "Enemy.php";
 
-    $player = new Player("Dela","Dela");
+    $enemy = new Enemy(4);
 
-    var_dump($player);
+    echo $enemy->enemy_description();
 ?>
