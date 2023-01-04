@@ -5,13 +5,22 @@
         private $id_player;
         private $name;
         private $pseudo;
+        private $class;
         private $created_at;
         private $party;
 
-        public function __construct($name,$pseudo)
+        public function __construct(string $name,string $pseudo,int $class)
         {
             $this->name = $name;
             $this->pseudo = $pseudo;
+
+            if($class > 0 && $class <= 5) {
+                $this->setClass($class);
+            } else {
+                exit("Tu sais pas lire ??");
+            }
+
+            $this->created_at = date("h:i:sa");
         }
 
 
@@ -26,7 +35,7 @@
 
                 return $this;
         }
-        
+
         public function getName()
         {
                 return $this->name;
@@ -48,6 +57,35 @@
         {
                 $this->pseudo = $pseudo;
 
+                return $this;
+        }
+
+        public function getClass()
+        {
+                return $this->class;
+        }
+
+        public function setClass($class)
+        {
+                switch($class) {
+                        case 1:
+                            $this->class = PLAYER_CHOICE_CLASS_01;
+                            break;
+                        case 2:
+                            $this->class = PLAYER_CHOICE_CLASS_02;
+                            break;
+                        case 3:
+                            $this->class = PLAYER_CHOICE_CLASS_03;
+                            break;
+                        case 4:
+                            $this->class = PLAYER_CHOICE_CLASS_04;
+                            break;
+                        case 5:
+                            $this->class = PLAYER_CHOICE_CLASS_05;
+                            break;
+                        default:
+                            $this->class = PLAYER_CHOICE_CLASS_ERROR;
+                }
                 return $this;
         }
 
@@ -74,7 +112,6 @@
 
                 return $this;
         }
-
-    }
-
+     }
+        
 ?>

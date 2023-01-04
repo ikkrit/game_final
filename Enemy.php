@@ -8,14 +8,14 @@
         private $skills;
         private $zone;
 
-        public function __construct(int $zone)
+        public function __construct(int $select)
         {
-            if($zone > 0 && $zone <= 6) {
-                $this->setName($zone);
-                $this->setClass($zone);
-                $this->setAttack($zone);
-                $this->setSkills($zone);
-                $this->setZone($zone);
+            if($select > 0 && $select <= 6) {
+                $this->setName($select);
+                $this->setClass($select);
+                $this->setAttack($select);
+                $this->setSkills($select);
+                $this->setZone($select);
             } else {
                 exit("Entre 1 et 6");
             }
