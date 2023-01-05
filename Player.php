@@ -12,6 +12,9 @@
         public function __construct(string $name,string $pseudo,int $class)
         {
             $this->name = $name;
+            while(trim(strlen($pseudo)) > 10) {
+                
+            }
             $this->pseudo = $pseudo;
 
             if($class > 0 && $class <= 5) {
